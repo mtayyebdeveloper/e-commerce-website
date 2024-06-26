@@ -15,23 +15,54 @@ const GetAllProductController = TryCatch(async (req, res) => {
   });
 });
 
-const getSingleProductController =TryCatch(async(req,res)=>{
-  const _id =req.params.id;
-  if(!_id){
-    return res.status(201).json({message:"Invalid product"})
+const getSingleProductController = TryCatch(async (req, res) => {
+  const _id = req.params.id;
+  if (!_id) {
+    return res.status(201).json({ message: "Invalid product" });
   }
-  const product =await Product.findOne({_id})
+  const product = await Product.findOne({ _id });
 
-  if(!product){
-    return res.status(201).json({message:"Product not found"})
+  if (!product) {
+    return res.status(201).json({ message: "Product not found" });
   }
 
   res.status(200).json({
     success: true,
-    message:"Product found succesfully",
-    product
+    message: "Product found succesfully",
+    product,
   });
+});
 
-})
+const updateSingleProductController = TryCatch(async (req, res) => {
+  const _id = req.params.id;
+  const { sold } = req.body;
+  if (!_id) {
+    return res.status(201).json({ message: "Invalid product" });
+  }
+  const findProduct = await Product.findOne({ _id });
+  if (!findProduct) {
+    return res.status(201).json({ message: "Product not found" });
+  }
+  let product_solds = findProduct.sold;
+  let total_solds = product_solds + sold;
+  const product = await Product.findOneAndUpdate(
+    { _id },
+    { sold: total_solds }
+  );
 
-export { GetAllProductController,getSingleProductController };
+  if (!product) {
+    return res.status(201).json({ message: "Product not found" });
+  }
+
+  res.status(200).json({
+    success: true,
+    message: "Product updated succesfully",
+    product,
+  });
+});
+
+export {
+  GetAllProductController,
+  getSingleProductController,
+  updateSingleProductController,
+};

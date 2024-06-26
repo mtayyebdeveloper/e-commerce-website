@@ -6,12 +6,12 @@ let storage = localStorage.getItem("token");
 let shipping_p = document.getElementById("Shipping_Price");
 let subtotal_p = document.getElementById("Subtotal_Price");
 let total_p = document.getElementById("Total_Price");
-let discount_price =0;
+let discount_price = 0;
 let subtotal_Price = 0;
 let shipping_price = 10;
 
 (async () => {
-// get coupon................................
+  // get coupon................................
   try {
     const response = await fetch(`${api}/api/coupon/getcoupon`, {
       method: "POST",
@@ -43,6 +43,7 @@ let shipping_price = 10;
   const cartsContainer = document.getElementById("cart-container");
   const discount_p = document.getElementById("discount-p");
   let cartslist = [];
+  let products_solds = [];
 
   try {
     const response = await fetch(`${api}/api/cart/allcarts`, {
@@ -65,6 +66,13 @@ let shipping_price = 10;
           total_price: data.total,
         };
         cartslist.push(cart);
+
+        let prducts = {
+          _id: data.product,
+          quantity: data.quantity,
+        };
+
+        products_solds.push(prducts);
         subtotal_Price += data.total;
         return (cartsContainer.innerHTML += `
           <div class="d-flex justify-content-between" key={${index}}>
@@ -86,20 +94,19 @@ let shipping_price = 10;
     shipping_p.innerHTML = `$${shipping_price}`;
   }
   let total_price = subtotal_Price + shipping_price;
-  if(discount_price>0){
-    discount_p.innerHTML=`$${total_price}`
-    let calculate_price =total_price/discount_price;
-  total_price=total_price-calculate_price;
-  total_p.innerHTML = `$${Math.round(total_price)}`;
-  }else{
-  total_p.innerHTML = `$${total_price}`;
+  if (discount_price > 0) {
+    discount_p.innerHTML = `$${total_price}`;
+    let calculate_price = total_price / discount_price;
+    total_price = total_price - calculate_price;
+    total_p.innerHTML = `$${Math.round(total_price)}`;
+  } else {
+    total_p.innerHTML = `$${total_price}`;
   }
 
   // bill submit....................................
   let submit_btn = document.getElementById("submit_btn");
 
   submit_btn.onclick = async () => {
-    console.log(cartslist);
     let fName = document.getElementById("first_name");
     let lName = document.getElementById("last_name");
     let email = document.getElementById("email");
@@ -117,7 +124,7 @@ let shipping_price = 10;
       alert("Please Select Your Account Type");
       return;
     }
-    
+
     try {
       const response = await fetch(`${api}/api/billing/createbill`, {
         method: "POST",
@@ -142,9 +149,33 @@ let shipping_price = 10;
         }),
       });
       if (response.status == 200) {
+        products_solds.forEach(async (data, index) => {
+          try {
+            const response =await fetch(`${api}/api/product/updateproduct/${data._id}`,{
+              method: "PATCH",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `token ${storage ? storage : ""}`,
+              },
+              body: JSON.stringify({
+                sold: data.quantity
+              })
+            })
+            if (response.status == 200) {
+              const data = await response.json();
+              console.log(data.message);
+            } else {
+              console.log(response);
+            }
+          } catch (error) {
+            console.log("Error: ", error);
+          }
+        })
         let data = await response.json();
         alert(data.message);
-        window.location.reload
+        setTimeout(() => {
+          window.location.reload();
+        },1000)
       } else if (response.status == 201) {
         const data = await response.json();
         alert(data.message);

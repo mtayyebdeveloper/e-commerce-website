@@ -8,6 +8,7 @@ import { AdminRouter } from "./src/routes/Admin.route.js";
 import ContactRouter from './src/routes/Contact.route.js'
 import { CartRouter } from "./src/routes/Cart.route.js";
 import { ProductRouter } from "./src/routes/Product.route.js";
+import {SearchRouter} from './src/routes/Search.route.js'
 import {ReviewRouter} from './src/routes/Review.route.js'
 import {CouponRouter} from './src/routes/Coupon.route.js'
 import {BillingFormRouter} from './src/routes/Billing_form.route.js'
@@ -39,6 +40,7 @@ app.use("/api/contact",ContactRouter);
 app.use("/api/review",ReviewRouter);
 app.use("/api/billing",BillingFormRouter);
 app.use("/api/coupon",CouponRouter);
+app.use("/api/search",SearchRouter);
 
 // error handle middleware...............
 app.use(ErrorHandle);

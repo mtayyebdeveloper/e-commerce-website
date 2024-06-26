@@ -3,7 +3,7 @@ let api = "http://localhost:4000/api";
 let profileimg = document.getElementById("profileimg");
 let profileimglabel = document.getElementById("profileimglabel");
 
-profileimglabel.src = "img/cat-1.jpg";
+profileimglabel.src = "img/offer-1.png";
 profileimg.onchange = () => {
   if (profileimg.files[0]) {
     profileimglabel.src = URL.createObjectURL(profileimg.files[0]);

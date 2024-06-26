@@ -14,6 +14,7 @@ let storage = localStorage.getItem("token");
   let product_quantity = document.getElementById("pquantity");
   let addtocart_btn = document.getElementById("addtocart");
   let product_longdesc = document.getElementById("plongdesc");
+  let product_sold = document.getElementById("psold");
   let catagory;
 
   // get single product details...............................
@@ -31,6 +32,7 @@ let storage = localStorage.getItem("token");
         product_img[i].src = data.product.image[i];
       }
       product_name.innerHTML = data.product.name;
+      product_sold.innerHTML = `${data.product.sold} sold`;
       product_price.innerHTML = `$${data.product.price}`;
       product_shortdesc.innerHTML = data.product.shortDescription;
 
@@ -217,11 +219,11 @@ let storage = localStorage.getItem("token");
       const data = await response.json();
       data.products.filter((product) => product.category === catagory).forEach((product, index) => {
         related_pruducts.innerHTML += `
-        <div class="card w-25 product-item border-0" key="${index}">
+        <div class="card w-25 product-item border-0 mx-2" key="${index}">
               <div
                 class="card-header product-img position-relative overflow-hidden bg-transparent border p-0"
               >
-                <img class="img-fluid w-100" src="${product.image[0]}" alt="" />
+                <img class="img-fluid w-100" src="${product.image[0]}" alt="" style="height:250px;"/>
               </div>
               <div
                 class="card-body border-left border-right text-center p-0 pt-4 pb-3"

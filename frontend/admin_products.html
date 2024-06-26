@@ -3,6 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta content="mtayyeb, e commerce, web developer, mt developer" name="keywords" />
+    <meta content="M Tayyeb Developer" name="auther" />
+    <meta content="This is e commerce app created by M Tayyeb Developer" name="description" />
     <title>M Tayyeb | Admin</title>
     <link
       rel="stylesheet"
@@ -14,8 +17,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-    <div class="w-full md:h-screen h-auto" id="container" style="display: none">
-      <div class="container mx-auto bg-slate-800 text-white h-full w-full">
+    <div class="w-full h-auto" id="container" style="display: none">
+      <div class="container mx-auto bg-slate-800 text-white h-full md:min-h-screen md:max-h-auto w-full">
         <div class="w-full bg-slate-300 flex items-center justify-center">
           <button
             class="absolute py-2 mt-1 px-3 top-0 bg-blue-700 hover:bg-blue-800 rounded-lg"
@@ -251,12 +254,17 @@
                             required
                             id="category"
                           >
-                            <option value="electronics">Electronics</option>
-                            <option value="laptop">Laptop</option>
-                            <option value="mobile">Mobile</option>
-                            <option value="fashion">Fashion</option>
-                            <option value="furniture">Furniture</option>
-                            <option value="home">Home</option>
+                          <option value="Women's Casual Dresses">Women's Casual Dresses</option>
+                          <option value="Men's Formal Attire
+                          ">Men's Formal Attire                </option>
+                          <option value="Children's Party Dresses">Children's Party Dresses</option>
+                          <option value="Women's Evening Gowns">Women's Evening Gowns</option>
+                          <option value="Men's Casual Wear">Men's Casual Wear</option>
+                          <option value="Girls' Summer Dresses">Girls' Summer Dresses</option>
+                          <option value="Boys' Formal Suits">Boys' Formal Suits</option>
+                          <option value="Women's Office Wear">Women's Office Wear</option>
+                          <option value="Maternity Dresses">Maternity Dresses</option>
+                          <option value="Unisex Lounge Wear">Unisex Lounge Wear</option>
                           </select>
                           <label
                             for="category"
@@ -299,58 +307,44 @@
                             </div>
                             <div class="flex items-center me-4">
                               <input
-                                id="purple-checkbox"
+                                id="blue-checkbox"
                                 type="checkbox"
-                                value="Purple"
+                                value="Blue"
                                 name="color"
-                                class="w-4 h-4 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500 focus:ring-2"
+                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
                               />
                               <label
-                                for="purple-checkbox"
+                                for="blue-checkbox"
                                 class="ms-2 text-sm font-medium text-gray-900"
-                                >Purple</label
+                                >Blue</label
                               >
                             </div>
                             <div class="flex items-center me-4">
                               <input
-                                id="teal-checkbox"
+                                id="white-checkbox"
                                 type="checkbox"
-                                value="Teal"
+                                value="White"
                                 name="color"
-                                class="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 rounded focus:ring-teal-500 focus:ring-2"
+                                class="w-4 h-4 text-white bg-gray-100 border-gray-300 rounded focus:ring-white focus:ring-2"
                               />
                               <label
-                                for="teal-checkbox"
+                                for="white-checkbox"
                                 class="ms-2 text-sm font-medium text-gray-900"
-                                >Teal</label
+                                >White</label
                               >
                             </div>
                             <div class="flex items-center me-4">
                               <input
-                                id="yellow-checkbox"
+                                id="black-checkbox"
                                 type="checkbox"
-                                value="Yellow"
+                                value="Black"
                                 name="color"
-                                class="w-4 h-4 text-yellow-400 bg-gray-100 border-gray-300 rounded focus:ring-yellow-500 focus:ring-2"
+                                class="w-4 h-4 text-black bg-gray-100 border-gray-300 rounded focus:ring-black focus:ring-2"
                               />
                               <label
-                                for="yellow-checkbox"
+                                for="black-checkbox"
                                 class="ms-2 text-sm font-medium text-gray-900"
-                                >Yellow</label
-                              >
-                            </div>
-                            <div class="flex items-center me-4">
-                              <input
-                                id="orange-checkbox"
-                                type="checkbox"
-                                value="Orange"
-                                name="color"
-                                class="w-4 h-4 text-orange-500 bg-gray-100 border-gray-300 rounded focus:ring-orange-500 focus:ring-2"
-                              />
-                              <label
-                                for="orange-checkbox"
-                                class="ms-2 text-sm font-medium text-gray-900"
-                                >Orange</label
+                                >Black</label
                               >
                             </div>
                           </div>
@@ -392,14 +386,14 @@
                               <input
                                 id="size-md"
                                 type="checkbox"
-                                value="MD"
+                                value="M"
                                 name="size"
-                                class="w-4 h-4 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500 focus:ring-2"
+                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
                               />
                               <label
                                 for="size-md"
                                 class="ms-2 text-sm font-medium text-gray-900"
-                                >MD</label
+                                >M</label
                               >
                             </div>
                             <div class="flex items-center me-4">
@@ -408,7 +402,7 @@
                                 type="checkbox"
                                 value="XL"
                                 name="size"
-                                class="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 rounded focus:ring-teal-500 focus:ring-2"
+                                class="w-4 h-4 text-white-600 bg-gray-100 border-gray-300 rounded focus:ring-white-500 focus:ring-2"
                               />
                               <label
                                 for="size-xl"
@@ -420,28 +414,14 @@
                               <input
                                 id="size-lg"
                                 type="checkbox"
-                                value="LG"
+                                value="L"
                                 name="size"
-                                class="w-4 h-4 text-yellow-400 bg-gray-100 border-gray-300 rounded focus:ring-yellow-500 focus:ring-2"
+                                class="w-4 h-4 text-black-400 bg-gray-100 border-gray-300 rounded focus:ring-black-500 focus:ring-2"
                               />
                               <label
                                 for="size-lg"
                                 class="ms-2 text-sm font-medium text-gray-900"
-                                >LG</label
-                              >
-                            </div>
-                            <div class="flex items-center me-4">
-                              <input
-                                id="size-2xl"
-                                type="checkbox"
-                                value="2XL"
-                                name="size"
-                                class="w-4 h-4 text-orange-500 bg-gray-100 border-gray-300 rounded focus:ring-orange-500 focus:ring-2"
-                              />
-                              <label
-                                for="size-2xl"
-                                class="ms-2 text-sm font-medium text-gray-900"
-                                >2XL</label
+                                >L</label
                               >
                             </div>
                           </div>
@@ -572,12 +552,17 @@
                           
                             id="update_category"
                           >
-                            <option value="electronics">Electronics</option>
-                            <option value="laptop">Laptop</option>
-                            <option value="mobile">Mobile</option>
-                            <option value="fashion">Fashion</option>
-                            <option value="furniture">Furniture</option>
-                            <option value="home">Home</option>
+                            <option value="Women's Casual Dresses">Women's Casual Dresses</option>
+                            <option value="Men's Formal Attire
+                            ">Men's Formal Attire                </option>
+                            <option value="Children's Party Dresses">Children's Party Dresses</option>
+                            <option value="Women's Evening Gowns">Women's Evening Gowns</option>
+                            <option value="Men's Casual Wear">Men's Casual Wear</option>
+                            <option value="Girls' Summer Dresses">Girls' Summer Dresses</option>
+                            <option value="Boys' Formal Suits">Boys' Formal Suits</option>
+                            <option value="Women's Office Wear">Women's Office Wear</option>
+                            <option value="Maternity Dresses">Maternity Dresses</option>
+                            <option value="Unisex Lounge Wear">Unisex Lounge Wear</option>
                           </select>
                           <label
                             for="update_category"
@@ -620,58 +605,44 @@
                             </div>
                             <div class="flex items-center me-4">
                               <input
-                                id="u_purple-checkbox"
+                                id="u_blue-checkbox"
                                 type="checkbox"
-                                value="Purple"
+                                value="Blue"
                                 name="color"
-                                class="w-4 h-4 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500 focus:ring-2"
+                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
                               />
                               <label
-                                for="u_purple-checkbox"
+                                for="u_blue-checkbox"
                                 class="ms-2 text-sm font-medium text-gray-900"
-                                >Purple</label
+                                >Blue</label
                               >
                             </div>
                             <div class="flex items-center me-4">
                               <input
-                                id="u_teal-checkbox"
+                                id="u_white-checkbox"
                                 type="checkbox"
-                                value="Teal"
+                                value="White"
                                 name="color"
-                                class="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 rounded focus:ring-teal-500 focus:ring-2"
+                                class="w-4 h-4 text-white-600 bg-gray-100 border-gray-300 rounded focus:ring-white-500 focus:ring-2"
                               />
                               <label
-                                for="u_teal-checkbox"
+                                for="u_white-checkbox"
                                 class="ms-2 text-sm font-medium text-gray-900"
-                                >Teal</label
+                                >White</label
                               >
                             </div>
                             <div class="flex items-center me-4">
                               <input
-                                id="u_yellow-checkbox"
+                                id="u_black-checkbox"
                                 type="checkbox"
-                                value="Yellow"
+                                value="Black"
                                 name="color"
-                                class="w-4 h-4 text-yellow-400 bg-gray-100 border-gray-300 rounded focus:ring-yellow-500 focus:ring-2"
+                                class="w-4 h-4 text-black-400 bg-gray-100 border-gray-300 rounded focus:ring-black-500 focus:ring-2"
                               />
                               <label
-                                for="u_yellow-checkbox"
+                                for="u_black-checkbox"
                                 class="ms-2 text-sm font-medium text-gray-900"
-                                >Yellow</label
-                              >
-                            </div>
-                            <div class="flex items-center me-4">
-                              <input
-                                id="u_orange-checkbox"
-                                type="checkbox"
-                                value="Orange"
-                                name="color"
-                                class="w-4 h-4 text-orange-500 bg-gray-100 border-gray-300 rounded focus:ring-orange-500 focus:ring-2"
-                              />
-                              <label
-                                for="u_orange-checkbox"
-                                class="ms-2 text-sm font-medium text-gray-900"
-                                >Orange</label
+                                >Black</label
                               >
                             </div>
                           </div>
@@ -713,14 +684,14 @@
                               <input
                                 id="u_size-md"
                                 type="checkbox"
-                                value="MD"
+                                value="M"
                                 name="size"
-                                class="w-4 h-4 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500 focus:ring-2"
+                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
                               />
                               <label
                                 for="u_size-md"
                                 class="ms-2 text-sm font-medium text-gray-900"
-                                >MD</label
+                                >M</label
                               >
                             </div>
                             <div class="flex items-center me-4">
@@ -729,7 +700,7 @@
                                 type="checkbox"
                                 value="XL"
                                 name="size"
-                                class="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 rounded focus:ring-teal-500 focus:ring-2"
+                                class="w-4 h-4 text-white-600 bg-gray-100 border-gray-300 rounded focus:ring-white-500 focus:ring-2"
                               />
                               <label
                                 for="u_size-xl"
@@ -741,28 +712,14 @@
                               <input
                                 id="u_size-lg"
                                 type="checkbox"
-                                value="LG"
+                                value="L"
                                 name="size"
-                                class="w-4 h-4 text-yellow-400 bg-gray-100 border-gray-300 rounded focus:ring-yellow-500 focus:ring-2"
+                                class="w-4 h-4 text-black-400 bg-gray-100 border-gray-300 rounded focus:ring-black-500 focus:ring-2"
                               />
                               <label
                                 for="u_size-lg"
                                 class="ms-2 text-sm font-medium text-gray-900"
-                                >LG</label
-                              >
-                            </div>
-                            <div class="flex items-center me-4">
-                              <input
-                                id="u_size-2xl"
-                                type="checkbox"
-                                value="2XL"
-                                name="size"
-                                class="w-4 h-4 text-orange-500 bg-gray-100 border-gray-300 rounded focus:ring-orange-500 focus:ring-2"
-                              />
-                              <label
-                                for="u_size-2xl"
-                                class="ms-2 text-sm font-medium text-gray-900"
-                                >2XL</label
+                                >L</label
                               >
                             </div>
                           </div>

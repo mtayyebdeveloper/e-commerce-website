@@ -254,15 +254,15 @@ nav_openBtn.onclick = () => {
     formdata.append("discount_price", discount_price.value);
     formdata.append("shortDescription", short_description.value);
     formdata.append("longDescription", long_description.value);
-   color_ary.forEach((data, index) => {
-    formdata.append("color", data);
-   })
+    color_ary.forEach((data, index) => {
+      formdata.append("color", data);
+    });
     size_ary.forEach((data, index) => {
       formdata.append("size", data);
-    })
+    });
     images_ary.forEach((image, index) => {
       formdata.append("file", image);
-  });
+    });
     try {
       const response = await fetch(`${api}/admin/createproduct`, {
         method: "POST",
@@ -286,27 +286,54 @@ nav_openBtn.onclick = () => {
     }
   };
 
-
   // update product..................................
-  let product_id;
-  editProduct = async (id) => {
-    product_id = id;
-    updateProduct_form.style.display = "flex";
-  }
+
   let updateProduct_form = document.getElementById("updateProduct-form");
   let close_update_form = document.getElementById("close-update-form");
   close_update_form.onclick = () => {
     updateProduct_form.style.display = "none";
   };
 
-  let update_products_images = document.getElementById("update-products-images");
+  let update_products_images = document.getElementById(
+    "update-products-images"
+  );
   let update_name = document.getElementById("update_name");
   let update_total_price = document.getElementById("update_total_price");
   let update_category = document.getElementById("update_category");
   let update_discount_price = document.getElementById("update_discount_price");
-  let update_short_description = document.getElementById("update_short_description");
-  let update_long_description = document.getElementById("update_long_description");
+  let update_short_description = document.getElementById(
+    "update_short_description"
+  );
+  let update_long_description = document.getElementById(
+    "update_long_description"
+  );
 
+  let product_id;
+  editProduct = async (id) => {
+    product_id = id;
+    updateProduct_form.style.display = "flex";
+    try {
+      const response = await fetch(`${api}/product/product/${id}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `token ${storage ? storage : ""}`,
+        }
+      });
+      if(response.ok){
+        let data =await response.json()
+        update_discount_price.value =data.product.discount_price;
+        update_long_description.value =data.product.longDescription;
+        update_name.value =data.product.name;
+        update_short_description.value =data.product.shortDescription;
+        update_total_price.value =data.product.price        
+      }else{
+        console.log(response);
+      }
+    } catch (error) {
+      console.log(("error", error));
+    }
+  };
   let update_images_ary = [];
   update_products_images.onchange = () => {
     if (update_images_ary.length <= 4) {
@@ -332,45 +359,45 @@ nav_openBtn.onclick = () => {
     size.forEach((data, index) => {
       size_ary.push(data.value);
     });
-  
 
-  const formdata = new FormData();
-  formdata.append("name", update_name.value);
-  formdata.append("price", update_total_price.value);
-  formdata.append("category", update_category.value);
-  formdata.append("discount_price", update_discount_price.value);
-  formdata.append("shortDescription", update_short_description.value);
-  formdata.append("longDescription", update_long_description.value);
-  color_ary.forEach((data, index) => {
-    formdata.append("color", data);
-  })
-  size_ary.forEach((data, index) => {
-    formdata.append("size", data);
-  })
-  update_images_ary.forEach((image, index) => {
-    formdata.append("file", image);
-  });
+    const formdata = new FormData();
+    formdata.append("name", update_name.value);
+    formdata.append("price", update_total_price.value);
+    formdata.append("category", update_category.value);
+    formdata.append("discount_price", update_discount_price.value);
+    formdata.append("shortDescription", update_short_description.value);
+    formdata.append("longDescription", update_long_description.value);
+    color_ary.forEach((data, index) => {
+      formdata.append("color", data);
+    });
+    size_ary.forEach((data, index) => {
+      formdata.append("size", data);
+    });
+    update_images_ary.forEach((image, index) => {
+      formdata.append("file", image);
+    });
 
-  try {
-    const response =await fetch( `${api}/admin/updateproduct/${product_id}`, {
-      method: "PATCH",
-      headers: {
-        Authorization: `token ${storage ? storage : ""}`,
-      },
-      body: formdata,
-    })
-    if (response.status == 200) {
-      const res = await response.json();
-      alert(res.message);
-      window.location.reload();
-    } else if (response.status == 201) {
-      const res = await response.json();
-      alert(res.message);
-    } else {
-      console.log(response);
+    try {
+      const response = await fetch(`${api}/admin/updateproduct/${product_id}`, {
+        method: "PATCH",
+        headers: {
+          Authorization: `token ${storage ? storage : ""}`,
+        },
+        body: formdata,
+      });
+      if (response.status == 200) {
+        const res = await response.json();
+        alert(res.message);
+        window.location.reload();
+      } else if (response.status == 201) {
+        const res = await response.json();
+        alert(res.message);
+      } else {
+        let data = await response.json();
+        console.log(data);
+      }
+    } catch (error) {
+      console.log("Server Error: ", error);
     }
-  } catch (error) {
-    console.log("Server Error: ", error);
-  }
-}
+  };
 })();
