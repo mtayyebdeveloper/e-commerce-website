@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta content="mtayyeb, e commerce, web developer, mt developer" name="keywords" />
+    <meta content="M Tayyeb Developer" name="auther" />
+    <meta content="This is e commerce app created by M Tayyeb Developer" name="description" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>M Tayyeb | Signup</title>
+  </head>
+  <body>
+    <div class=" w-full md:w-11/12 h-screen flex md:flex-row flex-col items-center md:justify-between">
+      <a href="index.html"><i class="fa-solid fa-arrow-left absolute top-5 left-5 text-3xl"></i></a>
+      <div class="left w-1/2 hidden md:block">
+        <img
+          src="img/ai-generated-8775228_640.png"
+          class="w-full h-full md:max-h-[500px]"
+          alt="image"
+        />
+      </div>
+      <div class="right w-[90%] md:w-1/2">
+        <form class="w-full mx-auto mt-10 md:mt-0" onsubmit="signup(event)" enctype="multipart/form-data">
+          <div class="w-[130px] mx-auto">
+            <label for="profileimg">
+              <img
+              src=""
+              id="profileimglabel"
+              class="w-[130px] h-[130px] mx-auto mb-3 rounded-full border border-2"
+              alt="user image"
+              />
+            </label>
+            <input type="file" style="display: none;" name="profileimg" id="profileimg">
+          </div>
+          <div class="grid md:grid-cols-2 md:gap-6">
+            <div class="relative z-0 w-full mb-5 group">
+              <input
+                type="text"
+                name="floating_fullname"
+                id="floating_fullname"
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                placeholder=" "
+                required
+              />
+              <label
+                for="floating_fullname"
+                class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >Full Name</label
+              >
+            </div>
+            <div class="relative z-0 w-full mb-5 group">
+              <input
+                type="text"
+                name="floating_username"
+                id="floating_username"
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                placeholder=" "
+                required
+              />
+              <label
+                for="floating_username"
+                class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >Username</label
+              >
+            </div>
+          </div>
+          <div class="relative z-0 w-full mb-5 group">
+            <input
+              type="email"
+              name="floating_email"
+              id="floating_email"
+              class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              placeholder=" "
+              required
+            />
+            <label
+              for="floating_email"
+              class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              >Email address</label
+            >
+          </div>
+            <div class="relative z-0 w-full mb-5 group">
+              <input
+                type="number"
+                name="floating_phone"
+                id="floating_phone"
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                placeholder=" "
+                required
+              />
+              <label
+                for="floating_phone"
+                class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >Phone number</label
+              >
+            </div>
+          <div class="relative z-0 w-full mb-5 group">
+            <input
+              type="password"
+              name="floating_password"
+              id="floating_password"
+              class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              placeholder=" "
+              required
+            />
+            <label
+              for="floating_password"
+              class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              >Password</label
+            >
+          </div>
+          <button
+            type="submit"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            Submit
+          </button>
+        </form>
+        <p class="text-sm font-semibold text-gray-700 mt-5">Already have an account? <a href="login.html" class="text-blue-500 hover:underline">Login</a></p>
+      </div>
+    </div>
+
+    <script src="js/signup.js"></script>
+  </body>
+</html>

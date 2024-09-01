@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta content="mtayyeb, e commerce, web developer, mt developer" name="keywords" />
+    <meta content="M Tayyeb Developer" name="auther" />
+    <meta content="This is e commerce app created by M Tayyeb Developer" name="description" />
+    <title>M Tayyeb | Admin</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="w-full h-auto" id="container" style="display: none">
+      <div class="container mx-auto bg-slate-800 text-white h-full md:min-h-screen md:max-h-auto w-full">
+        <div class="w-full bg-slate-300 flex items-center justify-center">
+          <button
+            class="absolute py-2 mt-1 px-3 top-0 bg-blue-700 hover:bg-blue-800 rounded-lg"
+            id="nav-open"
+          >
+            Open Navbar
+          </button>
+        </div>
+        <div
+          class="top h-14 w-100 flex items-center bg-slate-900 justify-between px-10"
+        >
+          <div class="left text-xl font-semibold"><h3><a href="admin_penal.html">Admin Penal</a></h3></div>
+          <div class="right">
+            <img
+              src="img/cat-2.jpg"
+              id="user-image"
+              class="w-10 h-10 rounded-full cursor-pointer"
+              alt="user image"
+            />
+            <div class="userdata absolute px-1 py-2 mt-1 bg-slate-700 right-12 z-10 rounded-lg" id="userdata-list" style="display: none;">
+              <p class="text-sm font-semibold hover:bg-slate-800 py-1 px-1" id="user-name"></p>
+              <p class="text-sm font-semibold hover:bg-slate-800 py-1 px-1" id="user-email"></p>
+              <p class="text-sm font-semibold hover:bg-slate-800 py-2 px-1 cursor-pointer" id="user-logout">Logout</p>
+            </div>
+          </div>
+        </div>
+        <div class="bottom">
+          <div
+            class="left w-[230px] h-full fixed bg-slate-900 shadow-black shadow-md z-10"
+            id="navbar"
+            style="display: none"
+          >
+            <ul>
+              <li class="py-3 hover:bg-slate-800 px-4">
+                <a href="admin_users.html"><i class="fa-solid fa-users me-3"></i>Users</a>
+              </li>
+              <li class="py-3 hover:bg-slate-800 px-4">
+                <a href="admin_products.html"
+                  ><i class="fa-solid fa-basket-shopping me-3"></i>Products</a
+                >
+              </li>
+              <li class="py-3 hover:bg-slate-800 px-4">
+                <a href="admin_bills.html"
+                  ><i class="fa-solid fa-clipboard-list me-3"></i>Bills</a
+                >
+              </li>
+              <li class="py-3 hover:bg-slate-800 px-4">
+                <a href="admin_contacts.html"
+                  ><i class="fa-solid fa-address-card me-3"></i>Contacts</a
+                >
+              </li>
+              <li class="py-3 hover:bg-slate-800 px-4">
+                <a href="admin_coupon.html"
+                  ><i class="fa-solid fa-ticket me-3"></i>Coupons</a
+                >
+              </li>
+              <li class="py-3 hover:bg-slate-800 px-4">
+                <a href="admin_settings.html"><i class="fa-solid fa-gear me-3"></i>Settings</a>
+              </li>
+            </ul>
+            <i
+              class="fa-solid fa-close absolute top-1 right-[-2.6rem] bg-black/75 text-2xl py-2 px-3 cursor-pointer hover:text-blue-500"
+              id="nav-close"
+            ></i>
+          </div>
+          <div class="right w-100 px-2">
+            <div
+              class="flex flex-col md:flex-row items-center justify-between w-full py-3"
+            >
+              <div class="flex flex-col md:flex-row w-full md:w-1/2">
+                <div
+                  class="bg-slate-900 shadow-md shadow-slate-900 mt-3 md:mt-0 mx-0 md:mx-3 w-full flex items-center py-4 px-3 hover:bg-slate-900/50 hover:scale-[1.1]"
+                >
+                  <i class="fa-solid fa-users text-3xl md:text-4xl lg:text-5xl xl:text-6xl"></i>
+                  <div class="ms-5">
+                    <h2 class="text-2xl font-semibold">Users</h2>
+                    <p id="total-users"></p>
+                  </div>
+                </div>
+                <div
+                  class="bg-slate-900 shadow-md shadow-slate-900 mt-3 md:mt-0 mx-0 md:mx-3 w-full flex items-center py-4 px-3 hover:bg-slate-900/50 hover:scale-[1.1]"
+                >
+                  <i class="fa-solid fa-shopping-basket text-3xl md:text-4xl lg:text-5xl xl:text-6xl"></i>
+                  <div class="ms-5">
+                    <h2 class="text-2xl font-semibold">Products</h2>
+                    <p id="total-products"></p>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-col md:flex-row w-full md:w-1/2">
+                <div
+                  class="bg-slate-900 shadow-md shadow-slate-900 mt-3 md:mt-0 mx-0 md:mx-3 w-full flex items-center py-4 px-3 hover:bg-slate-900/50 hover:scale-[1.1]"
+                >
+                  <i class="fa-solid fa-chart-line text-3xl md:text-4xl lg:text-5xl xl:text-6xl"></i>
+                  <div class="ms-5">
+                    <h2 class="text-2xl font-semibold">Sales</h2>
+                    <p id="total-sales"></p>
+                  </div>
+                </div>
+                <div
+                  class="bg-slate-900 shadow-md shadow-slate-900 mt-3 md:mt-0 mx-0 md:mx-3 w-full flex items-center py-4 px-3 hover:bg-slate-900/50 hover:scale-[1.1]"
+                >
+                  <i class="fa-solid fa-id-card-alt text-3xl md:text-4xl lg:text-5xl xl:text-6xl"></i>
+                  <div class="ms-5">
+                    <h2 class="text-2xl font-semibold">Contacts</h2>
+                    <p id="total-contacts"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="recent-orders mt-10 mx-3">
+              <h2 class="text-xl font-semibold">All Bills</h2>
+              <div class="relative overflow-x-auto mt-2 pb-4">
+                <table
+                  class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                >
+                  <thead
+                    class="text-xs text-gray-200 uppercase bg-slate-900"
+                  >
+                    <tr>
+                      <th scope="col" class="px-6 py-3">Name</th>
+                      <th scope="col" class="px-6 py-3">Email</th>
+                      <th scope="col" class="px-6 py-3">Country</th>
+                      <th scope="col" class="px-6 py-3">Zip</th>
+                      <th scope="col" class="px-6 py-3">Price</th>
+                      <th scope="col" class="px-6 py-3">PaymentType</th>
+                      <th scope="col" class="px-6 py-3">Delete</th>
+                    </tr>
+                  </thead>
+                  <tbody id="all-bills">
+                    
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/admin_bills.js"></script>
+  </body>
+</html>
